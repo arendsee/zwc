@@ -81,12 +81,6 @@ real	2m33.722s
 user	2m31.881s
 sys	0m1.276s
 
-$ time wordcount -sequence <(atfaa) -wordsize 5 -filter > /dev/null
-real	2m33.722s
-user	2m31.881s
-sys	0m1.276s
-
-
 $ time atfaa | zwc 5 > /dev/null
 real	0m8.001s
 user	0m7.888s
@@ -98,4 +92,4 @@ user	0m55.707s
 sys	0m1.616s
 ```
 
-I should probably do some more sophisticated benchmarking, the aobve results for ```wordcount``` are kind of bizzare.
+I should probably do some more sophisticated benchmarking, the above results for ```wordcount``` are kind of bizzare.
