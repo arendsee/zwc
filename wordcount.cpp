@@ -1,4 +1,4 @@
-/* wordcount - a filter for counting words in a FASTA file
+/* zwc - a filter for counting words in a FASTA file
  * author - Zebulun Arendsee
  *
  * $ wordcount 2 < sample.faa 
@@ -27,7 +27,7 @@ int main(int argc, char ** argv){
     size_t k = 1;
     if (argc == 2){
         if(argv[1][0] == '-'){
-            printf("zwordcount %s (faster EMBOSS wordcount)\n", VERSION.c_str()); 
+            printf("zwc %s (faster EMBOSS wordcount)\n", VERSION.c_str()); 
             printf("USAGE - zwordcount [word length] < d.fasta\n"); 
             printf("INPUT - A properly formatted FASTA file\n"); 
             return 0;
