@@ -18,21 +18,28 @@
 #include <boost/unordered_map.hpp>
 #include <string>
 #include <string.h>
+#include <stdlib.h>
 using std::string;
 using boost::unordered_map;
 
 string VERSION = "0.1.0";
 
+void print_help(){
+    printf("zwc %s (faster EMBOSS wordcount)\n", VERSION.c_str()); 
+    printf("USAGE - zwordcount [word length] < d.fasta\n"); 
+    printf("INPUT - A properly formatted FASTA file\n"); 
+    exit(0);
+}
+
 int main(int argc, char ** argv){
     size_t k = 1;
+    if (argc == 1 || (argc == 2 && argv[1][0] == '-'))
+        print_help();
+
     if (argc == 2){
-        if(argv[1][0] == '-'){
-            printf("zwc %s (faster EMBOSS wordcount)\n", VERSION.c_str()); 
-            printf("USAGE - zwordcount [word length] < d.fasta\n"); 
-            printf("INPUT - A properly formatted FASTA file\n"); 
-            return 0;
-        }
         k = atoi(argv[1]);
+    } else {
+        print_help();
     }
     string word = string(k, 'x');
 
