@@ -14,36 +14,21 @@
  */
 
 
-#include <stdio.h>
-#include <boost/unordered_map.hpp>
+#include <map>
 #include <string>
-#include <string.h>
-#include <stdlib.h>
-using std::string;
-using boost::unordered_map;
+#include <iostream>
 
-string VERSION = "0.1.0";
-
-void print_help(){
-    printf("zwc %s (faster EMBOSS wordcount)\n", VERSION.c_str()); 
-    printf("USAGE - zwordcount [word length] < d.fasta\n"); 
-    printf("INPUT - A properly formatted FASTA file\n"); 
-    exit(0);
-}
 
 int main(int argc, char ** argv){
-    size_t k = 1;
-    if (argc == 1 || (argc == 2 && argv[1][0] == '-'))
-        print_help();
+    int k = 1;
 
     if (argc == 2){
         k = atoi(argv[1]);
-    } else {
-        print_help();
     }
-    string word = string(k, 'x');
 
-    typedef unordered_map <string, int> hashmap;
+    std::string word = std::string(k, 'x');
+
+    typedef std::map<std::string, int> hashmap;
     hashmap counts;
 
     int seqpos = 0;
