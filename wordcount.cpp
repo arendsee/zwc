@@ -17,6 +17,7 @@
 #include <unordered_map>
 #include <string>
 #include <stdio.h>
+#include <iostream>
 
 
 
@@ -24,17 +25,19 @@ int main(int argc, char ** argv){
     int k = 1;
     FILE* fh;
 
-    if(argc > 1){
+    if (argc == 3){
         k  = atoi(argv[1]);
-        if (argc == 3){
-            fh = fopen(argv[2], "r");
-        } else {
-            fh = stdin;
-        }
+        fh = fopen(argv[2], "r");
     } else {
         return 1;
     }
 
+    fseek(fh, 0, SEEK_END);
+    size_t N = ftell(fh);
+    rewind(fh);
+
+    char* buffer = (char*)malloc(N * sizeof(char));
+    fread(buffer, N, sizeof(char), fh);
 
     std::string word = std::string(k, 'x');
 
@@ -43,8 +46,8 @@ int main(int argc, char ** argv){
 
     int seqpos = 0;
     bool is_header = false;
-    char c;
-    while((c = fgetc(fh)) != EOF){
+    for(int i = 0; i < N; i++){
+        char c = buffer[i];
         switch (c) {
             case '>':
                 is_header = true;
@@ -73,6 +76,8 @@ int main(int argc, char ** argv){
     for(hashmap::iterator it = counts.begin(); it != counts.end(); it++) {
         printf("%s\t%d\n", it->first.c_str(), it->second);
     }
+
+    free(buffer);
 
     return 0;
 }
