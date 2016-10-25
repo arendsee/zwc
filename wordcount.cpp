@@ -16,15 +16,25 @@
 
 #include <unordered_map>
 #include <string>
-#include <iostream>
+#include <stdio.h>
+
 
 
 int main(int argc, char ** argv){
     int k = 1;
+    FILE* fh;
 
-    if (argc == 2){
-        k = atoi(argv[1]);
+    if(argc > 1){
+        k  = atoi(argv[1]);
+        if (argc == 3){
+            fh = fopen(argv[2], "r");
+        } else {
+            fh = stdin;
+        }
+    } else {
+        return 1;
     }
+
 
     std::string word = std::string(k, 'x');
 
@@ -34,7 +44,7 @@ int main(int argc, char ** argv){
     int seqpos = 0;
     bool is_header = false;
     char c;
-    while((c = fgetc(stdin)) != EOF){
+    while((c = fgetc(fh)) != EOF){
         switch (c) {
             case '>':
                 is_header = true;
