@@ -2,7 +2,7 @@ TARGET=wordcount
 CC=g++
 FLAGS= -O2
 
-all:
+${TARGET}: ${TARGET}.cpp
 	${CC} -o wordcount ${FLAGS} ${TARGET}.cpp
 
 clean:

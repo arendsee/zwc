@@ -13,13 +13,12 @@
  * AC	4
  */
 
+#include "boost/unordered_map.hpp"
+// #include <unordered_map>
 
-#include <unordered_map>
 #include <string>
 #include <stdio.h>
 #include <iostream>
-
-
 
 int main(int argc, char ** argv){
     int k = 1;
@@ -39,14 +38,15 @@ int main(int argc, char ** argv){
     char* buffer = (char*)malloc(N * sizeof(char));
     fread(buffer, N, sizeof(char), fh);
 
-    std::string word = std::string(k, 'x');
-
-    typedef std::unordered_map<std::string, int> hashmap;
+    // typedef std::unordered_map<std::string, int> hashmap;
+    typedef boost::unordered_map<std::string, int> hashmap;
     hashmap counts;
+
+    std::string word(k, 'x');
 
     int seqpos = 0;
     bool is_header = false;
-    for(int i = 0; i < N; i++){
+    for(size_t i = 0; i < N; i++){
         char c = buffer[i];
         switch (c) {
             case '>':
@@ -67,7 +67,7 @@ int main(int argc, char ** argv){
                 }
                 word[k-1] = c;
                 if(seqpos >= k){
-                    counts[word]++;
+                    counts[word]++; // bottleneck
                 }
                 break;
         }
