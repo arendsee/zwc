@@ -14,7 +14,7 @@
  */
 
 
-#include <map>
+#include <unordered_map>
 #include <string>
 #include <iostream>
 
@@ -28,7 +28,7 @@ int main(int argc, char ** argv){
 
     std::string word = std::string(k, 'x');
 
-    typedef std::map<std::string, int> hashmap;
+    typedef std::unordered_map<std::string, int> hashmap;
     hashmap counts;
 
     int seqpos = 0;
