@@ -38,7 +38,7 @@ void fasta_wf(int k, const char* file){
 
     char* buffer = (char*)malloc(N * sizeof(char));
     int nread = fread(buffer, N, sizeof(char), fh);
-    if(nread != (N / sizeof(char))){
+    if(nread == 0){
        Rprintf("Failed to read file %s", file); 
        // TODO: I need to catch this
     }
