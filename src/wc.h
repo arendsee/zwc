@@ -14,21 +14,21 @@
 //' @param k      Integer expressing word size
 //' @param buffer A character array holding all fasta sequence
 // [[Rcpp::export]]
-Rcpp::DataFrame wc_from_string(int k, const char* fasta_string);
+Rcpp::DataFrame wc_from_string(int k, std::string fasta_string);
 
 //' Count words in fasta file
 //'
 //' @param k    Integer expressing word size
 //' @param file Fasta filename
 // [[Rcpp::export]]
-Rcpp::DataFrame wc_from_file(int k, const char* file);
+Rcpp::DataFrame wc_from_file(int k, std::string file);
 
 // Count words in fasta file
 //
 // @param k    Integer expressing word size
 // @param file Fasta filename
-Rcpp::DataFrame wc(int k, const char* buffer);
+Rcpp::DataFrame wc(int k, std::string buffer);
 
-const char* slurp_file(const char* file);
+std::string slurp_file(std::string file);
 
 #endif

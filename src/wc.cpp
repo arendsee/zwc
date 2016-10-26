@@ -15,11 +15,10 @@
 
 #include "wc.h"
 
-
-const char* slurp_file(const char* file){
+std::string slurp_file(std::string file){
     FILE* fh;
 
-    fh = fopen(file, "r");
+    fh = fopen(file.c_str(), "r");
 
     fseek(fh, 0, SEEK_END);
     size_t N = ftell(fh);
@@ -32,18 +31,18 @@ const char* slurp_file(const char* file){
        // TODO: I need to catch this
     }
 
-    return buffer;
+    return std::string(buffer);
 }
 
-Rcpp::DataFrame wc_from_file(int k, const char* file){
+Rcpp::DataFrame wc_from_file(int k, std::string file){
     return wc(k, slurp_file(file));
 }
 
-Rcpp::DataFrame wc_from_string(int k, const char* fasta_string){
+Rcpp::DataFrame wc_from_string(int k, std::string fasta_string){
     return wc(k, fasta_string);
 }
 
-Rcpp::DataFrame wc(int k, const char* buffer){
+Rcpp::DataFrame wc(int k, std::string buffer){
 
     std::string word(k, 'x');
 
@@ -51,7 +50,7 @@ Rcpp::DataFrame wc(int k, const char* buffer){
 
     int seqpos = 0;
     bool is_header = false;
-    for(size_t i = 0; buffer[i] != '\0'; i++){
+    for(size_t i = 0; i < buffer.size(); i++){
         char c = buffer[i];
         switch (c) {
             case '>':
