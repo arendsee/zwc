@@ -1,15 +1,15 @@
 #include "wordcounts.h"
 
 void WordCounts::print(){
-    for(hashmap::iterator it = counts.begin(); it != counts.end(); it++) {
+    for(hashmap::iterator it = map.begin(); it != map.end(); it++) {
         Rprintf("%s\t%d\n", it->first.c_str(), it->second);
     }
 }
 
-void WordCount::add_word(std::string word){
+void WordCounts::add_word(std::string word){
     map[word]++;
 }
 
-WordCount::WordCounts(){ }
+WordCounts::WordCounts(){ }
 
-WordCount::~WordCounts(){ }
+WordCounts::~WordCounts(){ }

@@ -37,7 +37,11 @@ void fasta_wf(int k, const char* file){
     rewind(fh);
 
     char* buffer = (char*)malloc(N * sizeof(char));
-    fread(buffer, N, sizeof(char), fh);
+    int nread = fread(buffer, N, sizeof(char), fh);
+    if(nread != (N / sizeof(char))){
+       Rprintf("Failed to read file %s", file); 
+       // TODO: I need to catch this
+    }
 
     std::string word(k, 'x');
 

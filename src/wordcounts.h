@@ -3,15 +3,15 @@
 
 #include <string>
 #include <map>
-#include <Rcpp>
+#include <Rcpp.h>
 
-typedef std::unordered_map<std::string, int> hashmap
+typedef std::unordered_map<std::string, int> hashmap;
 
 class WordCounts
 {
 private:
     hashmap map;
-    std::vector<string> words;
+    std::vector<std::string> words;
     std::vector<int> counts;
 
 public:
