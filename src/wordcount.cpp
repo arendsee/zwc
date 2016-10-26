@@ -28,8 +28,8 @@ using namespace Rcpp;
 //' @param k    Integer expressing word size
 //' @param file Fasta filename
 //' @export
-// [[Rpp::export]]
-int fasta_wf(int k, const char* file){
+// [[Rcpp::export]]
+void fasta_wf(int k, const char* file){
     FILE* fh;
 
     fh = fopen(file, "r");
