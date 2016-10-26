@@ -13,15 +13,13 @@
  * AC	4
  */
 
-// #include "boost/unordered_map.hpp"
-#include <map>
-
 #include <string>
 #include <stdio.h>
 #include <iostream>
 
 #include <Rcpp.h>
-using namespace Rcpp;
+
+#include "wordcounts.h"
 
 //' Count words in fasta file
 //'
@@ -41,11 +39,9 @@ void fasta_wf(int k, const char* file){
     char* buffer = (char*)malloc(N * sizeof(char));
     fread(buffer, N, sizeof(char), fh);
 
-    // typedef boost::unordered_map<std::string, int> hashmap;
-    typedef std::unordered_map<std::string, int> hashmap;
-    hashmap counts;
-
     std::string word(k, 'x');
+
+    WordCounts wc;
 
     int seqpos = 0;
     bool is_header = false;
@@ -70,15 +66,13 @@ void fasta_wf(int k, const char* file){
                 }
                 word[k-1] = c;
                 if(seqpos >= k){
-                    counts[word]++; // bottleneck
+                    wc.add_word(word); // bottleneck
                 }
                 break;
         }
     }
 
-    for(hashmap::iterator it = counts.begin(); it != counts.end(); it++) {
-        Rprintf("%s\t%d\n", it->first.c_str(), it->second);
-    }
+    wc.print();
 
     free(buffer);
 }
