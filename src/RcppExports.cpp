@@ -5,15 +5,27 @@
 
 using namespace Rcpp;
 
-// fasta_wf
-Rcpp::DataFrame fasta_wf(int k, const char* file);
-RcppExport SEXP zwc_fasta_wf(SEXP kSEXP, SEXP fileSEXP) {
+// wc_from_string
+Rcpp::DataFrame wc_from_string(int k, const char* fasta_string);
+RcppExport SEXP zwc_wc_from_string(SEXP kSEXP, SEXP fasta_stringSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type k(kSEXP);
+    Rcpp::traits::input_parameter< const char* >::type fasta_string(fasta_stringSEXP);
+    rcpp_result_gen = Rcpp::wrap(wc_from_string(k, fasta_string));
+    return rcpp_result_gen;
+END_RCPP
+}
+// wc_from_file
+Rcpp::DataFrame wc_from_file(int k, const char* file);
+RcppExport SEXP zwc_wc_from_file(SEXP kSEXP, SEXP fileSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< int >::type k(kSEXP);
     Rcpp::traits::input_parameter< const char* >::type file(fileSEXP);
-    rcpp_result_gen = Rcpp::wrap(fasta_wf(k, file));
+    rcpp_result_gen = Rcpp::wrap(wc_from_file(k, file));
     return rcpp_result_gen;
 END_RCPP
 }

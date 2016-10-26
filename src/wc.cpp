@@ -13,21 +13,10 @@
  * AC	4
  */
 
-#include <string>
-#include <stdio.h>
-#include <iostream>
+#include "wc.h"
 
-#include <Rcpp.h>
 
-#include "wordcounts.h"
-
-//' Count words in fasta file
-//'
-//' @param k    Integer expressing word size
-//' @param file Fasta filename
-//' @export
-// [[Rcpp::export]]
-Rcpp::DataFrame fasta_wf(int k, const char* file){
+const char* slurp_file(const char* file){
     FILE* fh;
 
     fh = fopen(file, "r");
@@ -43,13 +32,26 @@ Rcpp::DataFrame fasta_wf(int k, const char* file){
        // TODO: I need to catch this
     }
 
+    return buffer;
+}
+
+Rcpp::DataFrame wc_from_file(int k, const char* file){
+    return wc(k, slurp_file(file));
+}
+
+Rcpp::DataFrame wc_from_string(int k, const char* fasta_string){
+    return wc(k, fasta_string);
+}
+
+Rcpp::DataFrame wc(int k, const char* buffer){
+
     std::string word(k, 'x');
 
     WordCounts wc;
 
     int seqpos = 0;
     bool is_header = false;
-    for(size_t i = 0; i < N; i++){
+    for(size_t i = 0; buffer[i] != '\0'; i++){
         char c = buffer[i];
         switch (c) {
             case '>':
@@ -75,8 +77,6 @@ Rcpp::DataFrame fasta_wf(int k, const char* file){
                 break;
         }
     }
-
-    free(buffer);
 
     return wc.as_data_frame();
 }
