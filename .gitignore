@@ -1,1 +1,4 @@
-wordcount
+*.o
+*.so
+*.gz
+*.Rcheck/

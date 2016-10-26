@@ -13,23 +13,26 @@
  * AC	4
  */
 
-#include "boost/unordered_map.hpp"
-// #include <unordered_map>
+// #include "boost/unordered_map.hpp"
+#include <map>
 
 #include <string>
 #include <stdio.h>
 #include <iostream>
 
-int main(int argc, char ** argv){
-    int k = 1;
+#include <Rcpp.h>
+using namespace Rcpp;
+
+//' Count words in fasta file
+//'
+//' @param k    Integer expressing word size
+//' @param file Fasta filename
+//' @export
+// [[Rpp::export]]
+int fasta_wf(int k, const char* file){
     FILE* fh;
 
-    if (argc == 3){
-        k  = atoi(argv[1]);
-        fh = fopen(argv[2], "r");
-    } else {
-        return 1;
-    }
+    fh = fopen(file, "r");
 
     fseek(fh, 0, SEEK_END);
     size_t N = ftell(fh);
@@ -38,8 +41,8 @@ int main(int argc, char ** argv){
     char* buffer = (char*)malloc(N * sizeof(char));
     fread(buffer, N, sizeof(char), fh);
 
-    // typedef std::unordered_map<std::string, int> hashmap;
-    typedef boost::unordered_map<std::string, int> hashmap;
+    // typedef boost::unordered_map<std::string, int> hashmap;
+    typedef std::unordered_map<std::string, int> hashmap;
     hashmap counts;
 
     std::string word(k, 'x');
@@ -74,10 +77,8 @@ int main(int argc, char ** argv){
     }
 
     for(hashmap::iterator it = counts.begin(); it != counts.end(); it++) {
-        printf("%s\t%d\n", it->first.c_str(), it->second);
+        Rprintf("%s\t%d\n", it->first.c_str(), it->second);
     }
 
     free(buffer);
-
-    return 0;
 }
