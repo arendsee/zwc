@@ -2,7 +2,7 @@
 #define __WORDCOUNTS_H__
 
 #include <string>
-#include <map>
+#include <unordered_map>
 #include <Rcpp.h>
 
 typedef std::unordered_map<std::string, int> hashmap;
