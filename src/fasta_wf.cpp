@@ -27,7 +27,7 @@
 //' @param file Fasta filename
 //' @export
 // [[Rcpp::export]]
-void fasta_wf(int k, const char* file){
+Rcpp::DataFrame fasta_wf(int k, const char* file){
     FILE* fh;
 
     fh = fopen(file, "r");
@@ -76,7 +76,7 @@ void fasta_wf(int k, const char* file){
         }
     }
 
-    wc.print();
-
     free(buffer);
+
+    return wc.as_data_frame();
 }

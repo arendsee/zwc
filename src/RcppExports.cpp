@@ -6,13 +6,14 @@
 using namespace Rcpp;
 
 // fasta_wf
-void fasta_wf(int k, const char* file);
+Rcpp::DataFrame fasta_wf(int k, const char* file);
 RcppExport SEXP zwc_fasta_wf(SEXP kSEXP, SEXP fileSEXP) {
 BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< int >::type k(kSEXP);
     Rcpp::traits::input_parameter< const char* >::type file(fileSEXP);
-    fasta_wf(k, file);
-    return R_NilValue;
+    rcpp_result_gen = Rcpp::wrap(fasta_wf(k, file));
+    return rcpp_result_gen;
 END_RCPP
 }

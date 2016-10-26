@@ -11,8 +11,6 @@ class WordCounts
 {
 private:
     hashmap map;
-    std::vector<std::string> words;
-    std::vector<int> counts;
 
 public:
 
@@ -20,6 +18,8 @@ public:
     ~WordCounts();
 
     void print();
+
+    Rcpp::DataFrame as_data_frame();
 
     void add_word(std::string);
 };

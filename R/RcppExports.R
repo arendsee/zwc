@@ -7,6 +7,6 @@
 #' @param file Fasta filename
 #' @export
 fasta_wf <- function(k, file) {
-    invisible(.Call('zwc_fasta_wf', PACKAGE = 'zwc', k, file))
+    .Call('zwc_fasta_wf', PACKAGE = 'zwc', k, file)
 }
 
