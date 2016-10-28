@@ -6,7 +6,7 @@ Date: 2016-10-25
 Author: Zebulun Arendsee
 Maintainer: Zebulun Arendsee <arendsee@iastate.edu>
 Description: The EMBOSS wordcount is unusably slow, so I wrote this.
-License: GPL (>= 2)
+License: unlicense
 Imports:
     Rcpp (>= 0.12.7)
 LinkingTo: Rcpp
