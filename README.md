@@ -1,4 +1,5 @@
 [![Travis-CI Build Status](https://travis-ci.org/arendsee/zwc.svg?branch=master)](https://travis-ci.org/arendsee/zwc)
+[![Coverage Status](https://img.shields.io/codecov/c/github/arendsee/zwc/master.svg)](https://codecov.io/github/arendsee/zwc?branch=master)
 
 zwc
 ===
