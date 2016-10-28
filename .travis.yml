@@ -3,3 +3,12 @@
 language: R
 sudo: false
 cache: packages
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test # for g++-5
+    packages:
+      - g++-5
+
+CXX='g++-5'

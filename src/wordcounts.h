@@ -3,7 +3,9 @@
 
 #include <string>
 #include <unordered_map>
+
 #include <Rcpp.h>
+// [[Rcpp::plugins(cpp11)]]
 
 typedef std::unordered_map<std::string, int> hashmap;
 
