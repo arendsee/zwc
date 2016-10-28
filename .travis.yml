@@ -3,3 +3,14 @@
 language: R
 sudo: false
 cache: packages
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.9
+
+before_install:
+  echo "CXX1X=g++-4.9" >> src/Makevars
+  echo "CXX1XSTD=-std=c++11" >> src/Makevars
