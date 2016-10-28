@@ -8,7 +8,7 @@ NULL
 #' @param file FASTA filename
 #' @param text FASTA data as character vector
 #' @export
-zwc <- function(k=1, file="", text=NULL){
+fasta_wc <- function(k=1, file="", text=NULL){
   if(file.exists(file)){
     wc_from_file(k, file)
   }

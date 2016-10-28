@@ -2,3 +2,5 @@
 *.so
 *.gz
 *.Rcheck/
+
+man/
