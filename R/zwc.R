@@ -22,12 +22,12 @@ fasta_wc <- function(k=1, file="", text=NULL){
   return(d)
 }
 
-#' Plot wordcounts
+#' Histograph of counts
 #' 
 #' @param x a class wordcount entity
-#' @return a plot
+#' @return a histogram plot
 #' @export
-plot.wordcount <- function(x) {
+hist.wordcount <- function(x, ...) {
   # I know, this is a dumb way to plot it, but for now I am just testing
-  hist(x$count)
+  hist(x$count, ...)
 }
