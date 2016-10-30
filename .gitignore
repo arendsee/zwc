@@ -4,3 +4,4 @@
 *.Rcheck/
 
 man/
+inst/doc

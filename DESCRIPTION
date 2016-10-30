@@ -12,4 +12,7 @@ Imports:
 LinkingTo: Rcpp
 RoxygenNote: 5.0.1
 Suggests: testthat,
-    covr
+    covr,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
