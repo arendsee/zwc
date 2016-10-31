@@ -12,4 +12,5 @@ addons:
       - g++-4.9
 
 before_install:
-  echo "CXX=g++-4.9" >> src/Makevars
+  mkdir ~/.R
+  echo "CXX=g++-4.9" > ~/.R/Makevars
