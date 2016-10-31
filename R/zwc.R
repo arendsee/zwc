@@ -34,5 +34,5 @@ hist.wordcount <- function(x, ...) {
 
 plot.wordcount <- function(x, ...) {
   ggplot2::ggplot(x) +
-    geom_bar(aes(word, count), stat='identity')
+    geom_bar(aes(word, count), stat='identity', ...)
 }

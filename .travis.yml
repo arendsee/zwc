@@ -12,5 +12,4 @@ addons:
       - g++-4.9
 
 before_install:
-  echo "CXX1X=g++-4.9" >> src/Makevars
-  echo "CXX1XSTD=-std=c++11" >> src/Makevars
+  echo "CXX=g++-4.9" >> src/Makevars

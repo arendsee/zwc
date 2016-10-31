@@ -15,7 +15,7 @@ vignette: >
 
 ## Installation
 
-```{r}
+```
 require(devtools)
 install_github('arendsee/zwc')
 ```
@@ -26,7 +26,7 @@ install_github('arendsee/zwc')
 
 ## Usage
 
-```{r, fig.show='hold'}
+```
 library(zwc)
 data(mito_aa)
 x <- fasta_wc(k=3, text=mito_aa)
