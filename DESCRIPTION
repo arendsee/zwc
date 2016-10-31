@@ -9,6 +9,8 @@ URL: https://github.com/arendsee/zwc
 BugReports: https://github.com/arendsee/zwc/issues
 Description: The EMBOSS wordcount is unusably slow, so I wrote this.
 License: MIT + file LICENSE
+Depends:
+    R (>= 3.3.1)
 Imports:
     Rcpp (>= 0.12.7),
     ggplot2
