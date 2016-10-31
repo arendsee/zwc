@@ -25,6 +25,7 @@ fasta_wc <- function(k=1, file="", text=NULL){
 #' Histograph of counts
 #' 
 #' @param x a class wordcount entity
+#' @param ... other arguments for hist()
 #' @return a histogram plot
 #' @export
 hist.wordcount <- function(x, ...) {
@@ -32,7 +33,13 @@ hist.wordcount <- function(x, ...) {
   hist(x$count, ...)
 }
 
+#' Bar plot of counts
+#' 
+#' @param x a class wordcount entity
+#' @param ... other arguments for ggplot2::geom_bar()
+#' @return a bar plot
+#' @export
 plot.wordcount <- function(x, ...) {
   ggplot2::ggplot(x) +
-    geom_bar(aes(word, count), stat='identity', ...)
+    ggplot2::geom_bar(ggplot2::aes(word, count), stat='identity', ...)
 }

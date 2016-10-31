@@ -4,12 +4,12 @@
 \alias{wc_from_string}
 \title{Count words in fasta character array}
 \usage{
-wc_from_string(k, fasta_string)
+wc_from_string(k, text)
 }
 \arguments{
 \item{k}{Integer expressing word size}
 
-\item{buffer}{A character array holding all fasta sequence}
+\item{text}{A character array holding all fasta sequence}
 }
 \description{
 Count words in fasta character array

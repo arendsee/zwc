@@ -6,14 +6,14 @@
 using namespace Rcpp;
 
 // wc_from_string
-Rcpp::DataFrame wc_from_string(int k, std::string fasta_string);
-RcppExport SEXP zwc_wc_from_string(SEXP kSEXP, SEXP fasta_stringSEXP) {
+Rcpp::DataFrame wc_from_string(int k, std::string text);
+RcppExport SEXP zwc_wc_from_string(SEXP kSEXP, SEXP textSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< int >::type k(kSEXP);
-    Rcpp::traits::input_parameter< std::string >::type fasta_string(fasta_stringSEXP);
-    rcpp_result_gen = Rcpp::wrap(wc_from_string(k, fasta_string));
+    Rcpp::traits::input_parameter< std::string >::type text(textSEXP);
+    rcpp_result_gen = Rcpp::wrap(wc_from_string(k, text));
     return rcpp_result_gen;
 END_RCPP
 }

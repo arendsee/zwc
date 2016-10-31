@@ -3,10 +3,10 @@
 
 #' Count words in fasta character array
 #'
-#' @param k      Integer expressing word size
-#' @param buffer A character array holding all fasta sequence
-wc_from_string <- function(k, fasta_string) {
-    .Call('zwc_wc_from_string', PACKAGE = 'zwc', k, fasta_string)
+#' @param k    Integer expressing word size
+#' @param text A character array holding all fasta sequence
+wc_from_string <- function(k, text) {
+    .Call('zwc_wc_from_string', PACKAGE = 'zwc', k, text)
 }
 
 #' Count words in fasta file
