@@ -27,7 +27,7 @@ std::string slurp_file(std::string file){
     char* buffer = (char*)malloc(N * sizeof(char));
     int nread = fread(buffer, N, sizeof(char), fh);
     if(nread == 0){
-       Rprintf("Failed to read file %s", file); 
+       Rprintf("Failed to read file %s", file.c_str()); 
        // TODO: I need to catch this
     }
 
