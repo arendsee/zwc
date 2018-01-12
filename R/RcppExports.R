@@ -6,7 +6,7 @@
 #' @param k    Integer expressing word size
 #' @param text A character array holding all fasta sequence
 wc_from_string <- function(k, text) {
-    .Call('zwc_wc_from_string', PACKAGE = 'zwc', k, text)
+    .Call('_zwc_wc_from_string', PACKAGE = 'zwc', k, text)
 }
 
 #' Count words in fasta file
@@ -14,6 +14,6 @@ wc_from_string <- function(k, text) {
 #' @param k    Integer expressing word size
 #' @param file Fasta filename
 wc_from_file <- function(k, file) {
-    .Call('zwc_wc_from_file', PACKAGE = 'zwc', k, file)
+    .Call('_zwc_wc_from_file', PACKAGE = 'zwc', k, file)
 }
 

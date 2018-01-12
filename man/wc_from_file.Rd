@@ -14,4 +14,3 @@ wc_from_file(k, file)
 \description{
 Count words in fasta file
 }
-

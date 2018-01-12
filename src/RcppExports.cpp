@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // wc_from_string
 Rcpp::DataFrame wc_from_string(int k, std::string text);
-RcppExport SEXP zwc_wc_from_string(SEXP kSEXP, SEXP textSEXP) {
+RcppExport SEXP _zwc_wc_from_string(SEXP kSEXP, SEXP textSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -19,7 +19,7 @@ END_RCPP
 }
 // wc_from_file
 Rcpp::DataFrame wc_from_file(int k, std::string file);
-RcppExport SEXP zwc_wc_from_file(SEXP kSEXP, SEXP fileSEXP) {
+RcppExport SEXP _zwc_wc_from_file(SEXP kSEXP, SEXP fileSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -28,4 +28,15 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(wc_from_file(k, file));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_zwc_wc_from_string", (DL_FUNC) &_zwc_wc_from_string, 2},
+    {"_zwc_wc_from_file", (DL_FUNC) &_zwc_wc_from_file, 2},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_zwc(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }

@@ -1,5 +1,6 @@
 #' @useDynLib zwc
 #' @importFrom Rcpp sourceCpp
+#' @importFrom graphics hist
 NULL
 
 #' Cound words in fasta file
@@ -41,5 +42,5 @@ hist.wordcount <- function(x, ...) {
 #' @export
 plot.wordcount <- function(x, ...) {
   ggplot2::ggplot(x) +
-    ggplot2::geom_bar(ggplot2::aes(word, count), stat='identity', ...)
+    ggplot2::geom_bar(ggplot2::aes_string('word', 'count'), stat='identity', ...)
 }

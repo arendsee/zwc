@@ -14,4 +14,3 @@ wc_from_string(k, text)
 \description{
 Count words in fasta character array
 }
-
