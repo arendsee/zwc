@@ -6,6 +6,8 @@
 #include <iostream>
 
 #include <Rcpp.h>
+// enable cpp11
+// [[Rcpp::plugins(cpp11)]]
 
 #include "wordcounts.h"
 
