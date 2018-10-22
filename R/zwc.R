@@ -9,6 +9,14 @@ NULL
 #' @param file FASTA filename
 #' @param text FASTA data as character vector
 #' @export
+#' @examples
+#' # Get system FASTA file holding the Agathis dammara chloroplast
+#' # protein seqences
+#' aa_file <- system.file("Agathis_dammara.chloroplast.faa", package=("zwc"))
+#' # Count 1-mers (character frequency)
+#' fasta_wc(aa_file, k=1)
+#' # Count 2-mers
+#' fasta_wc(aa_file, k=2)
 fasta_wc <- function(k=1, file="", text=NULL){
   d <- NULL
   if(file.exists(file)){
