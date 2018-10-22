@@ -10,7 +10,7 @@ BugReports: https://github.com/arendsee/zwc/issues
 Description: An extremely fast FASTA word counter.
 License: MIT + file LICENSE
 Depends:
-    R (>= 3.4.0)
+    R (>= 3.2.0)
 Imports:
     Rcpp (>= 0.12.7),
     ggplot2
