@@ -17,6 +17,13 @@ NULL
 #' fasta_wc(aa_file, k=1)
 #' # Count 2-mers
 #' fasta_wc(aa_file, k=2)
+#'
+#' # A raw string of text can be given
+#' fasta_wc(k=2, text="AAATTTTTAAATATATATATATATATATATA")
+#'
+#' # Or a FASTA file as a string
+#' data(mito_dna)
+#' fasta_wc(k=2, text=mito_dna) 
 fasta_wc <- function(k=1, file="", text=NULL){
   d <- NULL
   if(file.exists(file)){
