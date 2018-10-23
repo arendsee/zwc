@@ -2,6 +2,9 @@
 *.so
 *.gz
 *.Rcheck/
-
-man/
+.Rhistory
+.RData
+.build.timestamp
 inst/doc
+tags
+..Rcheck
