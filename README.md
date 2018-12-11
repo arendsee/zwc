@@ -1,3 +1,4 @@
+[![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
 [![Travis-CI Build Status](https://travis-ci.org/arendsee/zwc.svg?branch=master)](https://travis-ci.org/arendsee/zwc)
 [![Coverage Status](https://img.shields.io/codecov/c/github/arendsee/zwc/master.svg)](https://codecov.io/github/arendsee/zwc?branch=master)
 [![DOI](https://zenodo.org/badge/25451459.svg)](https://zenodo.org/badge/latestdoi/25451459)
